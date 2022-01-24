@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <!-- Bootstrap cdn's -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: whitesmoke;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .book{
+            
+            padding: 4px;
+            margin: 0px;
+        }
+        img{
+            border: 1px solid black;
+            display: block;
+            margin: 0px auto;
+            
+        }
+        .card-body{
+            text-align: center;
+            border: 2px dotted black;
+            height: auto;
+        }
+        .card-text{
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    {% block content%}
+   <div class="container">
+    <h1 class="text-center">Book Details</h1>
+    
+       <div class="row">
+        {% for b in books %}
+            <div class="book col-12 col-sm-12 col-md-12 col-lg-3">
+                <img class="card-img" src="{{b.picture.url}}" alt="Book Image" style="height: 140px;width: 100%;">
+                <div class="card-body">
+                    <h4 class="card-title">{{b.name}}</h4>
+                    <hr>
+                    <strong class="card-title">{{b.author}}</strong>
+                    <p class="card-text">{{b.description}}</p>
+                    <button class="btn btn-info d-block m-auto">More Info</button>
+                </div>
+            </div>
+        {% endfor %}
+       </div>  
+   </div>
+   {% endblock %}
+</body>
+</html>
